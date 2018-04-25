@@ -1,3 +1,5 @@
+<?php
+
 // src/Entity/Test.php
 namespace App\Entity;
 
@@ -26,3 +28,5 @@ class Test
         $this->dueDate = $dueDate;
     }
 }
+
+?>
