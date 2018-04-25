@@ -23,12 +23,9 @@ class HomeController extends AbstractController
     /**
      * @Route("/grades/{slug}")
      */
-    public function show($slug)
+    public function addGrade($slug)
     {
-       
-        
-
-        return $this->render('home/show.html.twig', [
+        return $this->render('home/addGrade.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
         ]);
     }
