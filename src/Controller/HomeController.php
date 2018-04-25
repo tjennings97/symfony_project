@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -29,26 +30,26 @@ class HomeController extends AbstractController
      */
     public function addClass($slug)
     {
-        $class = new Course();
-        $class->setCode('CSC135');
-        $class->setSection('010');
-        $class->setProfessor('Frye');
-        $class->setDays('MW');
-        $class->setTime('3-4:30');
-        $class->setLocation('OM158');
-        $class->setTitle('Computer Science I');
+        $course = new Course();
+        /*$course->setCode('CSC135');
+        $course->setSection('010');
+        $course->setProfessor('Frye');
+        $course->setDays('MW');
+        $course->setTime('3-4:30');
+        $course->setLocation('OM158');
+        $course->setTitle('Computer Science I');
 
-        $form = $this->createFormBuilder($class)
-            ->add('code', TextType::class)
-            ->add('section', TextType::class)
-            ->add('professor', TextType::class)
-            ->add('days', TextType::class)
-            ->add('time', TextType::class)
-            ->add('location', TextType::class)
-            ->add('title', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Add Class'))
+        $form = $this->createFormBuilder($course)
+            ->add('code', TextType::course)
+            ->add('section', TextType::course)
+            ->add('professor', TextType::course)
+            ->add('days', TextType::course)
+            ->add('time', TextType::course)
+            ->add('location', TextType::course)
+            ->add('title', TextType::course)
+            ->add('save', SubmitType::course, array('label' => 'Add Class'))
             ->getForm();
-
+*/
 
         return $this->render('home/addClasses.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)), array(
