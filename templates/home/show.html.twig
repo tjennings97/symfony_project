@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Read {{ title }}{% endblock %}
+{% block title %}{{ title }}'s Grades{% endblock %}
 
 {% block body %}
 
-<h1>{{ title }}</h1>
+<h2>{{ title }}</h2>
 
 <div>
 
@@ -22,7 +22,7 @@
 
 </div>
 
-<h2>Comments ({{ comments|length }})</h2>
+<h3>Comments ({{ comments|length }})</h3>
 
 <ul>
     {% for comment in comments %}
