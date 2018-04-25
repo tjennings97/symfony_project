@@ -31,13 +31,7 @@ class HomeController extends AbstractController
     public function addClass($slug, Request $request)
     {
         $course = new Course();
-        $course->setCode('');
-        $course->setSection('');
-        $course->setProfessor('');
-        $course->setDays('');
-        $course->setTime('');
-        $course->setLocation('');
-        $course->setTitle('');
+        $course->
 
         $form = $this->createFormBuilder($course)
             ->add('code', TextType::class)
@@ -53,7 +47,13 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->redirectToRoute('task_success');
+            $course = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($course);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home/addClasses.html.twig');
         }
 
         return $this->render('home/addClasses.html.twig', [
