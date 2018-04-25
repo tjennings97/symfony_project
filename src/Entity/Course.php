@@ -1,5 +1,5 @@
 //src/Entity/Course.php
-namespace App\Entity;
+namespace Src\Entity;
 
 class Course
 {
