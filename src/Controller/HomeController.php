@@ -18,7 +18,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="homepage")
      */
     public function homepage()
     {
@@ -31,7 +31,7 @@ class HomeController extends AbstractController
     public function addClass($slug, Request $request)
     {
         $course = new Course();
-        $course->
+        
 
         $form = $this->createFormBuilder($course)
             ->add('code', TextType::class)
@@ -53,7 +53,7 @@ class HomeController extends AbstractController
             $entityManager->persist($course);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home/addClasses.html.twig');
+            return $this->redirectToRoute('list');
         }
 
         return $this->render('home/addClasses.html.twig', [
@@ -63,14 +63,14 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/classes/show/{slug}")
+     * @Route("/classes/list, "list")
      */
-    public function showClass($slug)
-    {
-        return $this->render('home/showClasses.html.twig', [
-            'title' => ucwords(str_replace('-', ' ', $slug)),
-        ]);
+    public function listClasses() {
+        return new Response('Softball Web Application');
+        /*$courses = $this->getDoctrine->getRepository(Course::class)->findAll();
+        return $this->render('home/listClasses.html.twig', array('courses' => $courses));*/
     }
+
 }
 
 ?>
