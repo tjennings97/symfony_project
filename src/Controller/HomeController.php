@@ -27,6 +27,8 @@ class HomeController extends AbstractController
             'I am so excited to sleep',
         ];
 
+        dump($slug, $this);
+
         return $this->render('home/show.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
             'comments' => $comments,
