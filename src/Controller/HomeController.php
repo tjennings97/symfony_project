@@ -35,7 +35,7 @@ class HomeController extends AbstractController
         $course->setSection('010');
         $course->setProfessor('Frye');
         $course->setDays('MW');
-        $course->setTime('3-4:30');
+        $course->setTime('3-4:20');
         $course->setLocation('OM158');
         $course->setTitle('Computer Science I');
 
@@ -47,13 +47,13 @@ class HomeController extends AbstractController
             ->add('time', TextType::class)
             ->add('location', TextType::class)
             ->add('title', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Add Class'))
+            ->add('add', SubmitType::class, array('label' => 'Add Class'))
             ->getForm();
 
         return $this->render('home/addClasses.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)), array(
-                'form' => $form->createView(),
-            )
+                'form' => $form->createView()),
+            
         ]);
     }
 
@@ -67,3 +67,5 @@ class HomeController extends AbstractController
         ]);
     }
 }
+
+?>
