@@ -71,7 +71,7 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/classes/editClasses/{$id}", name="edit")
-     * 
+     * @Method({"GET", "POST"})
      */
     public function editClass(Request $request, $id)
     {
