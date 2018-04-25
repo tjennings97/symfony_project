@@ -63,7 +63,7 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('homepage');
         }
 
-        return $this->render('home/addClasses.html.twig', [
+        return $this->render('classes/addClasses.html.twig', [
              'form' => $form->createView(),
              'title' => ucwords(str_replace('-', ' ', $slug)),
         ]);
@@ -98,7 +98,7 @@ class HomeController extends AbstractController
 
             return $this->redirectToRoute('homepage');
         }
-        return $this->render('home/editClasses.html.twig', [
+        return $this->render('classes/editClasses.html.twig', [
             'form' => $form->createView()
        ]);
    }
