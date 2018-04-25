@@ -51,8 +51,8 @@ class HomeController extends AbstractController
             ->getForm();
 
         return $this->render('home/addClasses.html.twig', [
-            'title' => ucwords(str_replace('-', ' ', $slug)), array(
-                'form' => $form->createView()),
+             array('form' => $form->createView()),
+             'title' => ucwords(str_replace('-', ' ', $slug)),
             
         ]);
     }
