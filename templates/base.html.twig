@@ -5,24 +5,71 @@
         <meta charset="UTF-8">
         <title>{% block title %}Grades{% endblock %}</title>
         
+        <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+            background-color: aqua;
+        }
+
+        .top {
+            text-align: center;
+            clear: both;
+            background-color: maroon;
+            width: 100%;
+            color:white;
+        }
+
+        .middleLeft {
+            background-color:blue;
+            color: white;
+            width:75%;
+            float:left;
+        }
+
+        .middleRight {
+            background-color:black;
+            color:white;
+            width:25%;
+            float:right;
+            text-align:center;
+        }
+
+        .footer {
+            text-align:center;
+        }
+
+        .bottom{
+            background-color:yellow;
+        }
+</style>
+
         {% block stylesheets %}
-            <link rel="stylesheet" href="/css/styles.css"
+            <!--<link rel="stylesheet" type="text/css" href="/css/styles.css"-->
         {% endblock %}
     </head>
 
     <body>
 
-        <div style="width:100%">
-            <div class = 'top'>
-                <h1>Kutztown University Softball</h1>
-            </div>
+        
+        <div class = 'top'>
+            <h1>Kutztown University Softball</h1>
+        </div>
+        
+        <div class = 'middleLeft'>
+            {% block body %}{% endblock %}
+        </div>
 
-        {% block body %}{% endblock %}
+        <div class = "middleRight'>
+            <h6>text text text</h6>
+        </div>
 
         <footer class="footer">
-            <div class = 'bottom'>
+            <div class = 'middleRight'>
                 <h5>Tamara's project</h5>
             </div>
+        </footer>
+
         {% block javascripts %}{% endblock %}
+
     </body>
 </html>
