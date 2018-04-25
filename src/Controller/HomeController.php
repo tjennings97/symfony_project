@@ -28,7 +28,7 @@ class HomeController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Course::class);
 
         /*$course1 = $repository->findAll();*/
-        return $this->render('home/listCourses.html.twig',array('courses'=>$courses));
+        return $this->render('classes/listCourses.html.twig',array('courses'=>$courses));
     }
 
     /**
@@ -70,8 +70,8 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/classes/edit{$id}")
-     * @Method({"GET", "POST"})
+     * @Route("/classes/editClasses/{$id}", name="edit")
+     * 
      */
     public function editClass(Request $request, $id)
     {
