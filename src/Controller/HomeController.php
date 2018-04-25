@@ -21,11 +21,21 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/grades/{slug}")
+     * @Route("/grades/add/{slug}")
      */
-    public function addGrade($slug)
+    public function addGrades($slug)
     {
-        return $this->render('home/addGrade.html.twig', [
+        return $this->render('home/addGrades.html.twig', [
+            'title' => ucwords(str_replace('-', ' ', $slug)),
+        ]);
+    }
+
+    /**
+     * @Route("/grades/show/{slug}")
+     */
+    public function showGrades($slug)
+    {
+        return $this->render('home/showGrades.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
         ]);
     }
