@@ -22,7 +22,9 @@ class HomeController extends AbstractController
      */
     public function homepage()
     {
-        return new Response('Softball Web Application');
+        /*return new Response('Softball Web Application');*/
+        $courses = $this->getDoctrine()->getRepository(Course::class)->findAll();
+        return $this->render('courses/listCourses.html.twig',array('courses'=>$courses));
     }
 
     /**
@@ -53,7 +55,7 @@ class HomeController extends AbstractController
             $entityManager->persist($course);
             $entityManager->flush();
 
-            return $this->redirectToRoute('list');
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('home/addClasses.html.twig', [
@@ -65,11 +67,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/classes/list, "list")
      */
-    public function listClasses() {
+    /*public function listClasses() {
         return new Response('Softball Web Application');
-        /*$courses = $this->getDoctrine->getRepository(Course::class)->findAll();
-        return $this->render('home/listClasses.html.twig', array('courses' => $courses));*/
-    }
+        $courses = $this->getDoctrine->getRepository(Course::class)->findAll();
+        return $this->render('home/listClasses.html.twig', array('courses' => $courses));
+    }*/
 
 }
 
