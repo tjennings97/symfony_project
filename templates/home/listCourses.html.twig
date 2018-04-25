@@ -29,7 +29,7 @@
                 <td>{{ course.getTime }}</td>
                 <td>{{ course.getLocation }}</td>
                 <td>{{ course.getTitle }}</td>
-                <td><a href="" class = "edit" data-id={{course.id}}>Edit</a></td>
+                <td><a href="/home/editClasses.html.twig" class = "edit" data-id={{course.id}}>Edit</a></td>
                 <td><a href="" class = "delete" data-id={{course.id}}>Remove</a></td>
             </tr>
         {% endfor %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,6 +33,7 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/classes/add/{slug}")
+     * @Method({"GET", "POST"})
      */
     public function addClass($slug, Request $request)
     {
@@ -68,14 +70,48 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/classes/delete/{id})
+     * @Route("/classes/edit{$id}")
+     * @Method({"GET", "POST"})
+     */
+    public function editClass(Request $request, $id)
+    {
+        $course = new Course();
+        $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
+
+        $form = $this->createFormBuilder($course)
+            ->add('code', TextType::class)
+            ->add('section', TextType::class)
+            ->add('professor', TextType::class)
+            ->add('days', TextType::class)
+            ->add('time', TextType::class)
+            ->add('location', TextType::class)
+            ->add('title', TextType::class)
+            ->add('add', SubmitType::class, array('label' => 'Add Class'))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->flush();
+
+            return $this->redirectToRoute('homepage');
+        }
+        return $this->render('home/editClasses.html.twig', [
+            'form' => $form->createView()
+       ]);
+   }
+
+    /**
+     * @Route("/classes/delete/{id}")
      * @Method({"DELETE"})
      */
     public function delete(Request $request, $id) {
-        $courses = $this->getDoctrine()->getRepository(Course::class)->find($id);
+       $course = $this->getDoctrine()->getRepository(Course::class)->find($id);
 
         $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($courses);
+            $entityManager->remove($course);
             $entityManager->flush();
 
         $response = new Response();
