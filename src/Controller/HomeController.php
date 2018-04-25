@@ -25,8 +25,31 @@ class HomeController extends AbstractController
      */
     public function addClass($slug)
     {
-        return $this->render('home/addClass.html.twig', [
-            'title' => ucwords(str_replace('-', ' ', $slug)),
+        $class = new Class();
+        $class->setCode('CSC135');
+        $class->setSection('010');
+        $class->setProfessor('Frye');
+        $class->setDays('MW');
+        $class->setTime('3-4:30');
+        $class->setLocation('OM158');
+        $class->setTitle('Computer Science I');
+
+        $form = $this->createFormBuilder($class)
+            ->add('code', TextType::class)
+            ->add('section', TextType::class)
+            ->add('professor', TextType::class)
+            ->add('days', TextType::class)
+            ->add('time', TextType::class)
+            ->add('location', TextType::class)
+            ->add('title', TextType::class)
+            ->add('save', SubmitType::class, array('label' => 'Add Class'))
+            ->getForm();
+
+
+        return $this->render('home/addClasses.html.twig', [
+            'title' => ucwords(str_replace('-', ' ', $slug)), array(
+                'form' => $form->createView(),
+            )
         ]);
     }
 
@@ -35,7 +58,7 @@ class HomeController extends AbstractController
      */
     public function showClass($slug)
     {
-        return $this->render('home/showClass.html.twig', [
+        return $this->render('home/showClasses.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
         ]);
     }
