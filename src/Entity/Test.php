@@ -1,7 +1,7 @@
-// src/Entity/Task.php
+// src/Entity/Test.php
 namespace App\Entity;
 
-class Task
+class Test
 {
     protected $task;
     protected $dueDate;
