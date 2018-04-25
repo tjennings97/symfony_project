@@ -8,18 +8,39 @@
 
 <div>
 
-    <p>
-        
-    </p>
+    <table style="width:100%" id="courses">
+        <tr>
+            <td>Code</td>
+            <td>Section</td>
+            <td>Professor</td>
+            <td>Days</td>
+            <td>Time</td>
+            <td>Location</td>
+            <td>Title</td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.getCode }}</td>
+                <td>{{ course.getSection }}</td>
+                <td>{{ course.getProfessor }}</td>
+                <td>{{ course.getDays }}</td>
+                <td>{{ course.getTime }}</td>
+                <td>{{ course.getLocation }}</td>
+                <td>{{ course.getTitle }}</td>
+                <td><a href="" class = "edit" data-id={{course.id}}>Edit</a></td>
+                <td><a href="" class = "delete" data-id={{course.id}}>Remove</a></td>
+            </tr>
+        {% endfor %}
+    </table>
 
 
 
 </div>
 
-<h3>Not comments </h3>
-
-<ul>
-    
-</ul>
-
 {% endblock %}
+
+{% block javascripts %}
+    <script src="/js/main.js"></script>
+{% endblock%}

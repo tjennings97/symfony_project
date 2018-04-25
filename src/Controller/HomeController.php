@@ -18,13 +18,16 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/classes/home", name="homepage")
      */
     public function homepage()
     {
         /*return new Response('Softball Web Application');*/
         $courses = $this->getDoctrine()->getRepository(Course::class)->findAll();
-        return $this->render('courses/listCourses.html.twig',array('courses'=>$courses));
+        $repository = $this->getDoctrine()->getRepository(Course::class);
+
+        /*$course1 = $repository->findAll();*/
+        return $this->render('home/listCourses.html.twig',array('courses'=>$courses));
     }
 
     /**
@@ -65,13 +68,19 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/classes/list, "list")
+     * @Route("/classes/delete/{id})
+     * @Method({"DELETE"})
      */
-    /*public function listClasses() {
-        return new Response('Softball Web Application');
-        $courses = $this->getDoctrine->getRepository(Course::class)->findAll();
-        return $this->render('home/listClasses.html.twig', array('courses' => $courses));
-    }*/
+    public function delete(Request $request, $id) {
+        $courses = $this->getDoctrine()->getRepository(Course::class)->find($id);
+
+        $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($courses);
+            $entityManager->flush();
+
+        $response = new Response();
+        $response->send();
+    }
 
 }
 

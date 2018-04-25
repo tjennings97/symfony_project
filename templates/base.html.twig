@@ -39,6 +39,14 @@
         .bottom{
             background-color:yellow;
         }
+
+        .delete {
+            color:red;
+        }
+
+        .edit {
+            color:blue;
+        }
 </style>
 
         {% block stylesheets %}
@@ -53,12 +61,8 @@
             <h1>Kutztown University</h1>
         </div>
         
-        <div class = 'middleLeft'>
+        <div>
             {% block body %}{% endblock %}
-        </div>
-
-        <div class = "middleRight'>
-            <h6>text text text</h6>
         </div>
 
         {% block javascripts %}{% endblock %}
