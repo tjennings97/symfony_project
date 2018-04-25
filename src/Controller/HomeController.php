@@ -6,6 +6,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 class HomeController extends AbstractController
 {
     /**
@@ -21,17 +25,11 @@ class HomeController extends AbstractController
      */
     public function show($slug)
     {
-        $comments = [
-            'I had wawa for dinner.',
-            'We spilt against Wilmington today',
-            'I am so excited to sleep',
-        ];
-
-        dump($slug, $this);
+       
+        
 
         return $this->render('home/show.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)),
-            'comments' => $comments,
         ]);
     }
 }
