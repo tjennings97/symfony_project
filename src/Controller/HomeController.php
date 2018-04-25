@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class HomeController
+class HomeController extends AbstractController
 {
     /**
      * @Route("/")
@@ -20,9 +21,15 @@ class HomeController
      */
     public function show($slug)
     {
-        return new Response(sprintf(
-            'Grades page for player: "%s"',
-            $slug
-        ));
+        $comments = [
+            'I had wawa for dinner.',
+            'We spilt against Wilmington today',
+            'I am so excited to sleep',
+        ];
+
+        return $this->render('home/show.html.twig', [
+            'title' => ucwords(str_replace('-', ' ', $slug)),
+            'comments' => $comments,
+        ]);
     }
 }
