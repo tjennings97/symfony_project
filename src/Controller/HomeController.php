@@ -6,6 +6,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
+
+use Symfony\Component\Form\Forms;
+use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -25,7 +28,7 @@ class HomeController extends AbstractController
      */
     public function addClass($slug)
     {
-        $class = new Class();
+        $class = new Classes();
         $class->setCode('CSC135');
         $class->setSection('010');
         $class->setProfessor('Frye');

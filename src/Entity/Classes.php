@@ -3,13 +3,13 @@ namespace App\Entity;
 
 class Class
 {
-    protected $Code;
-    protected $Section;
-    protected $Professor;
-    protected $Days;
-    protected $Time;
-    protected $Location;
-    protected $Title;
+    private $Code;
+    private $Section;
+    private $Professor;
+    private $Days;
+    private $Time;
+    private $Location;
+    private $Title;
 
     public function getCode()
     {
