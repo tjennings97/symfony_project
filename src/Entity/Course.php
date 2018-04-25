@@ -1,3 +1,5 @@
+<?php
+
 //src/Entity/Course.php
 namespace App\Entity;
 
@@ -81,3 +83,4 @@ class Course
         $this->Title = $Title;
     }
 }
+?>

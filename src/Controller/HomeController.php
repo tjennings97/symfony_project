@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 use App\Entity\Course;
-use App\Entity\Test;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -31,8 +30,7 @@ class HomeController extends AbstractController
      */
     public function addClass($slug)
     {
-        $task = new Test();
-        /*$course = new Course();*/
+        $course = new Course();
         /*$course->setCode('CSC135');
         $course->setSection('010');
         $course->setProfessor('Frye');
