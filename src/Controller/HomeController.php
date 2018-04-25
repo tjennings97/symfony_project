@@ -40,14 +40,14 @@ class HomeController extends AbstractController
         $course->setTitle('Computer Science I');
 
         $form = $this->createFormBuilder($course)
-            /*->add('Code', TextType::course)*/
-            ->add('section', TextType::course)
-            ->add('professor', TextType::course)
-            ->add('days', TextType::course)
-            ->add('time', TextType::course)
-            ->add('location', TextType::course)
-            ->add('title', TextType::course)
-            ->add('save', SubmitType::course, array('label' => 'Add Class'))
+            ->add('code', TextType::class)
+            ->add('section', TextType::class)
+            ->add('professor', TextType::class)
+            ->add('days', TextType::class)
+            ->add('time', TextType::class)
+            ->add('location', TextType::class)
+            ->add('title', TextType::class)
+            ->add('save', SubmitType::class, array('label' => 'Add Class'))
             ->getForm();
 
         return $this->render('home/addClasses.html.twig', [
