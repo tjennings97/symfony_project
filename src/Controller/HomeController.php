@@ -28,16 +28,16 @@ class HomeController extends AbstractController
     /**
      * @Route("/classes/add/{slug}")
      */
-    public function addClass($slug)
+    public function addClass($slug, Request $request)
     {
         $course = new Course();
-        $course->setCode('CSC135');
-        $course->setSection('010');
-        $course->setProfessor('Frye');
-        $course->setDays('MW');
-        $course->setTime('3-4:20');
-        $course->setLocation('OM158');
-        $course->setTitle('Computer Science I');
+        $course->setCode('');
+        $course->setSection('');
+        $course->setProfessor('');
+        $course->setDays('');
+        $course->setTime('');
+        $course->setLocation('');
+        $course->setTitle('');
 
         $form = $this->createFormBuilder($course)
             ->add('code', TextType::class)
@@ -50,10 +50,15 @@ class HomeController extends AbstractController
             ->add('add', SubmitType::class, array('label' => 'Add Class'))
             ->getForm();
 
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('task_success');
+        }
+
         return $this->render('home/addClasses.html.twig', [
-             array('form' => $form->createView()),
+             'form' => $form->createView(),
              'title' => ucwords(str_replace('-', ' ', $slug)),
-            
         ]);
     }
 
