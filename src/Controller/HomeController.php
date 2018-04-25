@@ -5,8 +5,9 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
-use App\Entity\Classes;
+use App\Entity\Course;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -28,7 +29,7 @@ class HomeController extends AbstractController
      */
     public function addClass($slug)
     {
-        $class = new Classes();
+        $class = new Course();
         $class->setCode('CSC135');
         $class->setSection('010');
         $class->setProfessor('Frye');

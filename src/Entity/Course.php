@@ -1,7 +1,7 @@
-//src/Entity/Classes.php
+//src/Entity/Course.php
 namespace App\Entity;
 
-class Classes
+class Course
 {
     private $Code;
     private $Section;
