@@ -53,7 +53,7 @@ class Course
         $this->Code = $Code;
     }
 
-    public function setSeciont($Section)
+    public function setSection($Section)
     {
         $this->Section = $Section;
     }

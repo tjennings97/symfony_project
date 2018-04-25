@@ -31,7 +31,7 @@ class HomeController extends AbstractController
     public function addClass($slug)
     {
         $course = new Course();
-        /*$course->setCode('CSC135');
+        $course->setCode('CSC135');
         $course->setSection('010');
         $course->setProfessor('Frye');
         $course->setDays('MW');
@@ -40,7 +40,7 @@ class HomeController extends AbstractController
         $course->setTitle('Computer Science I');
 
         $form = $this->createFormBuilder($course)
-            ->add('code', TextType::course)
+            /*->add('Code', TextType::course)*/
             ->add('section', TextType::course)
             ->add('professor', TextType::course)
             ->add('days', TextType::course)
@@ -49,7 +49,6 @@ class HomeController extends AbstractController
             ->add('title', TextType::course)
             ->add('save', SubmitType::course, array('label' => 'Add Class'))
             ->getForm();
-*/
 
         return $this->render('home/addClasses.html.twig', [
             'title' => ucwords(str_replace('-', ' ', $slug)), array(
